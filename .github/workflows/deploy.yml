@@ -1,0 +1,19 @@
+name: Deploy User Script
+
+on:
+  push:
+    branches:
+      - main  # Change this to your main branch name
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Deploy script
+        run: |
+          mkdir -p ~/.config/violentmonkey/localhost/
+          cp script.user.js ~/.config/violentmonkey/localhost/script.user.js
